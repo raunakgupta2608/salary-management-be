@@ -13,6 +13,6 @@ export class AppService {
   }
 
   async getUsers() {
-    return this.knex('users').select('*');
+    return await this.knex('employees').select('*');
   }
 }

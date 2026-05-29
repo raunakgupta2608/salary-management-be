@@ -19,3 +19,9 @@ Employment Status (Active/Inactive)
 Created At / Updated At timestamps
 id primary_key
 It should seed 10000 rows. Help me on how to do it
+
+## Create a seed and migration file within the database folder.
+
+## Also add a seed file which can add upto 10000 records with the below fields into employees table Full Name Job Title, Country, Salary, Department, Email (unique identifier), Employment Status (Active/Inactive), Created At / Updated At timestamps, id
+
+## Refine the test case written for this cursor based pagination
