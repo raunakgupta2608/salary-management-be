@@ -10,17 +10,16 @@ export class AnalyticsRepository {
   }
 
   async getAverageSalaryByJobTitle(country?: string) {
-    const query = this.knex('employees')
+    return this.knex('country_job_title_salary_summary')
       .select('job_title')
-      .avg('salary as avg_salary')
-      .groupBy('job_title')
+      .select(
+        this.knex.raw('total_salary / NULLIF(employee_count, 0) AS avg_salary'),
+      )
+      .select('employee_count')
+      .modify((qb) => {
+        if (country) qb.where('country', country);
+      })
       .orderBy('job_title');
-
-    if (country) {
-      query.where('country', country);
-    }
-
-    return query;
   }
 
   async getHeadcountByCountryAndJobTitle() {
