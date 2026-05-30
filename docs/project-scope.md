@@ -41,9 +41,9 @@ The backend will expose REST APIs for CRUD operations and analytics computation,
    Provide HR managers with real-time analytics:
    Minimum, maximum, and average salary by country
    Average salary by job title within a selected country
-   Salary distribution visualization (optional chart view)
    Headcount by country and job title
    Outlier detection (employees earning significantly above/below average)
+   Salary distribution visualization (optional chart view)
 
 3. Data Seeding & Performance
    Seed script generates 10,000 employees using:

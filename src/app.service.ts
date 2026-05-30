@@ -1,18 +1,10 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { Knex } from 'knex';
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  constructor(
-    @Inject('KNEX_CONNECTION')
-    private readonly knex: Knex,
-  ) {}
+  constructor() {}
 
   getHello(): string {
     return 'Hello World!';
-  }
-
-  async getUsers() {
-    return await this.knex('employees').select('*');
   }
 }

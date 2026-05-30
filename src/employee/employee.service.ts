@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateEmployeeDto } from './dto/create-employee.dto';
 import { UpdateEmployeeDto } from './dto/update-employee.dto';
 import { EmployeeRepository } from './employee.repository';
@@ -14,6 +14,7 @@ export class EmployeeService {
   async findAll(cursor?: number, limit = 20) {
     return this.employeeRepo.findAll(cursor, limit);
   }
+
   findOne(id: number) {
     return `This action returns a #${id} employee`;
   }
