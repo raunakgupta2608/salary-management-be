@@ -31,16 +31,13 @@ describe('AnalyticsRepository', () => {
   });
 
   describe('getSalarySummaryByCountry', () => {
-    it('should build salary summary query grouped by country', async () => {
+    it('should fetch salary summary from summary table ordered by country', async () => {
       await repository.getSalarySummaryByCountry();
 
-      expect(knexMock).toHaveBeenCalledWith('employees');
+      expect(knexMock).toHaveBeenCalledWith('country_salary_summary');
 
-      expect(queryBuilder.select).toHaveBeenCalledWith('country');
-      expect(queryBuilder.min).toHaveBeenCalledWith('salary as min_salary');
-      expect(queryBuilder.max).toHaveBeenCalledWith('salary as max_salary');
-      expect(queryBuilder.avg).toHaveBeenCalledWith('salary as avg_salary');
-      expect(queryBuilder.groupBy).toHaveBeenCalledWith('country');
+      expect(queryBuilder.select).toHaveBeenCalledWith('*');
+
       expect(queryBuilder.orderBy).toHaveBeenCalledWith('country');
     });
   });
