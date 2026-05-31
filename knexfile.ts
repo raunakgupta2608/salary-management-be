@@ -42,7 +42,7 @@ const config: { [key: string]: Knex.Config } = {
       ssl: useSSL
         ? {
             rejectUnauthorized: true,
-            ca: fs.readFileSync('certs/ca.pem').toString(),
+            ca: process.env.DB_CA_CERT,
           }
         : true,
     },
